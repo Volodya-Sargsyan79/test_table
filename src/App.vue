@@ -40,7 +40,7 @@
 
 .app_container--rightAside h1 {
   margin-bottom: 25px;
-  font-family: MyriadPro;
+  font-family: myriadPro;
   font-size: 30px;
   font-weight: normal;
   font-stretch: normal;
@@ -56,7 +56,7 @@ nav {
 }
 
 nav a {
-  
+  font-family: myriadPro;
   color: #2c3e50;
 }
 

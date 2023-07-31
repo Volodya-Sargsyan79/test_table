@@ -19,7 +19,7 @@
     border-radius: 5px;
     background-color: #2f8cff;
     border: none;
-    font-family: MyriadPro;
+    font-family: myriadPro;
     font-size: 14px;
     color: #fff;
     cursor: pointer;

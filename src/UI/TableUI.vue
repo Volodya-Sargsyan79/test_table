@@ -1,5 +1,5 @@
 <template>
-    <div class="table-container">
+  <div class="table-container">
     <table class="resizable-table">
       <thead>
         <tr>
@@ -33,8 +33,12 @@
         data() {
     return {
       columns: [
-        { title: 'Column 1', width: 150 },
-        { title: 'Column 2', width: 200 },
+        { title: 'Column 1', width: 100 },
+        { title: 'Column 2', width: 100 },
+        { title: 'Column 1', width: 100 },
+        { title: 'Column 2', width: 100 },
+        { title: 'Column 1', width: 100 },
+        { title: 'Column 2', width: 100 },
         // Add more columns as needed
       ],
       isResizing: false,
@@ -51,16 +55,13 @@
       this.initialColumnWidth = this.columns[index].width;
       window.addEventListener('mousemove', this.handleMouseMove);
       window.addEventListener('mouseup', this.stopResizing);
-      console.log(this.initialColumnWidth)
     },
     handleMouseMove(event) {
       if (this.isResizing) {
         const offsetX = event.clientX - this.initialMouseX;
         const newWidth = this.initialColumnWidth + offsetX;
-        
         if (newWidth > 0) {
           this.columns[this.resizingColumnIndex].width = newWidth;
-          console.log(this.columns[this.resizingColumnIndex].width)
         }
       }
     },
@@ -77,30 +78,36 @@
 </script>
 
 <style>
+  * {
+      box-sizing: border-box;
+  }
 
-.resizable-table th {
-  position: relative;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  border-right: 1px solid blue;
-}
+  .resizable-table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 100%;
+  }
 
-.resize-handle {
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-left: 1px solid black;
-  height: 100%;
-  cursor: col-resize;
-}
+  .resizable-table th, .resizable-table td {
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    padding: 0 10px;
+  }
 
-td {
-    display: none;;
-}
+  .resize-handle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-right: solid 1px #ccc;
+    width: 5%;
+    height: 100%;
+    cursor: col-resize;
+  }
 
-.rresizable-table th:hover + table td{
-   display: block;
-}
-
+  .resize-handle:hover{
+    border-right: solid 1px black;
+  } 
 </style>
